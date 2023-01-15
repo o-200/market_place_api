@@ -1,7 +1,10 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'destroy user should destroy linked product' do
+    assert_difference('Product.count', -1) do
+      users(:one).destroy
+    end
+  end
 end
+
