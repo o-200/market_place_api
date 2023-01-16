@@ -50,3 +50,5 @@ end
 gem "bcrypt", "~> 3.1"
 
 gem "jwt", "~> 2.6"
+
+gem "faker", "~> 3.1"
