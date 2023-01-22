@@ -26,7 +26,7 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     json_response = JSON.parse(self.response.body)
-    assert_equal @user.email, json_response['email']
+    assert_equal @user.email, json_response['data']['attributes']['email']
   end
 
   test 'should create user' do
@@ -53,7 +53,7 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
   end
 
-  test "should destroy user" do
+  test 'should destroy user' do
     assert_difference('User.count', -1) do
       delete api_v1_user_url(@user), as: :json
     end
